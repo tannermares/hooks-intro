@@ -5,9 +5,37 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color:#282c34;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  text-align: center;
+  margin-top: 400px;
+}
+
+section {
+  display: inline-block;
+  background-color: whitesmoke;
+  margin: auto;
+  width: 300px;
+  color: #282c34;
+  box-shadow: 10px 10px #1f2329
+}
+
+.classsection {
+  background-color: lightyellow;
+  border-radius: 5px;
+  font-family: fantasy;
+}
+
+div.func .classsection {
+  text-align: left;
+  border-radius: 5px;
+  background-color: pink;
+  font-family: cursive
 }
