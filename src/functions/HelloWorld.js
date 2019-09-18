@@ -5,10 +5,7 @@ export default function HelloWorld(props) {
   const [name, setName] = useState('Han Solo')
   const [job, setJob] = useState('Smuggler')
   const width = useWindowWidth()
-
-  useEffect(() => {
-    document.title = name + ' ' + job
-  })
+  useDocumentTitle(name + ' ' + job)
 
   function handleNameChange(e) {
     setName(e.target.value)
@@ -31,6 +28,12 @@ export default function HelloWorld(props) {
       </section>
     </section>
   )
+}
+
+function useDocumentTitle(title) {
+  useEffect(() => {
+    document.title = title
+  })
 }
 
 function useWindowWidth() {
