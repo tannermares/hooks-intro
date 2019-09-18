@@ -25,7 +25,6 @@ export default class HelloWorld extends React.Component {
         <Row label="Name">
           <input value={this.state.name} onChange={this.handleNameChange} />
         </Row>
-
         <Row label="Job">
           <input value={this.state.job} onChange={this.handleJobChange} />
         </Row>
