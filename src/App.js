@@ -5,22 +5,22 @@ import HelloWorldFunc from './functions/HelloWorld'
 function App() {
   return document.location.search.split('?')[1] === 'c' ? (
     <div className="container">
-      <HelloWorld name="Mary" surname="Poppins" />
+      <HelloWorld name="Han" surname="Solo" />
     </div>
   ) : document.location.search.split('?')[1] === 'f' ? (
     <div className="container">
       <div className="func">
-        <HelloWorldFunc name="Mary" surname="Poppins" />
+        <HelloWorldFunc name="Han" surname="Solo" />
       </div>
     </div>
   ) : (
     <div className="container">
       <div style={{ display: 'inline-block' }}>
-        <HelloWorld name="Mary" surname="Poppins" />
+        <HelloWorld name="Han" surname="Solo" />
       </div>
       <div style={{ display: 'inline-block', marginRight: '20%' }}></div>
       <div style={{ display: 'inline-block' }} className="func">
-        <HelloWorldFunc name="Mary" surname="Poppins" />
+        <HelloWorldFunc name="Han" surname="Solo" />
       </div>
     </div>
   )
