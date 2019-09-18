@@ -1,10 +1,25 @@
 import React from 'react'
 import Row from '../Row'
 
-export default function HelloWorld(props) {
-  return (
-    <section>
-      <Row label="Name">{props.name}</Row>
-    </section>
-  )
+export default class HelloWorld extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: 'Han',
+    }
+    this.handleNameChange = this.handleNameChange.bind(this)
+  }
+
+  handleNameChange(e) {
+    this.setState({ name: e.target.value })
+  }
+  render() {
+    return (
+      <section>
+        <Row label="Name">
+          <input value={this.state.name} onChange={this.handleNameChange} />
+        </Row>
+      </section>
+    )
+  }
 }
