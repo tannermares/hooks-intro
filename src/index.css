@@ -28,6 +28,17 @@ section {
   box-shadow: 10px 10px #1f2329
 }
 
+input {
+  font-size: 32px;
+  font-weight: bold;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: #282c34;
+  margin: 0;
+  padding: 0;
+}
+
 .classsection {
   background-color: lightyellow;
   border-radius: 5px;
