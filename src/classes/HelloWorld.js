@@ -12,6 +12,14 @@ export default class HelloWorld extends React.Component {
     this.handleJobChange = this.handleJobChange.bind(this)
   }
 
+  componentDidMount() {
+    document.title = this.state.name + ' ' + this.state.job
+  }
+
+  componentDidUpdate() {
+    document.title = this.state.name + ' ' + this.state.job
+  }
+
   handleNameChange(e) {
     this.setState({ name: e.target.value })
   }
