@@ -2,32 +2,34 @@ import React, { useState, useEffect } from 'react'
 import Row from '../Row'
 
 export default function HelloWorld(props) {
-  const [name, setName] = useState('Han Solo')
-  const [job, setJob] = useState('Smuggler')
+  const name = useFormInput('Han Solo')
+  const job = useFormInput('Smuggler')
   const width = useWindowWidth()
-  useDocumentTitle(name + ' ' + job)
-
-  function handleNameChange(e) {
-    setName(e.target.value)
-  }
-
-  function handleJobChange(e) {
-    setJob(e.target.value)
-  }
+  useDocumentTitle(name.value + ' ' + job.value)
 
   return (
     <section>
       <section>
         <Row label="Name">
-          <input value={name} onChange={handleNameChange} />
+          <input {...name} />
         </Row>
         <Row label="Job">
-          <input value={job} onChange={handleJobChange} />
+          <input {...job} />
         </Row>
         <Row label="Width">{width}</Row>
       </section>
     </section>
   )
+}
+
+function useFormInput(initialValue) {
+  const [value, setValue] = useState(initialValue)
+
+  function handleChange(e) {
+    setValue(e.target.value)
+  }
+
+  return { value, onChange: handleChange }
 }
 
 function useDocumentTitle(title) {
