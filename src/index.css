@@ -19,6 +19,7 @@ code {
 }
 
 section {
+  text-align: left;
   display: inline-block;
   background-color: whitesmoke;
   margin: auto;
