@@ -7,17 +7,28 @@ export default class HelloWorld extends React.Component {
     this.state = {
       name: 'Han Solo',
       job: 'Smuggler',
+      width: window.innerWidth,
     }
     this.handleNameChange = this.handleNameChange.bind(this)
     this.handleJobChange = this.handleJobChange.bind(this)
+    this.handleResize = this.handleResize.bind(this)
   }
 
   componentDidMount() {
     document.title = this.state.name + ' ' + this.state.job
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentDidUpdate() {
     document.title = this.state.name + ' ' + this.state.job
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
+  }
+
+  handleResize() {
+    this.setState({ width: window.innerWidth })
   }
 
   handleNameChange(e) {
@@ -38,6 +49,8 @@ export default class HelloWorld extends React.Component {
         <Row label="Job">
           <input value={this.state.job} onChange={this.handleJobChange} />
         </Row>
+
+        <Row label="Width">{this.state.width}</Row>
       </section>
     )
   }
