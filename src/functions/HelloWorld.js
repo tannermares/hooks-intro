@@ -9,6 +9,13 @@ export default function HelloWorld(props) {
     document.title = name + ' ' + job
   })
 
+  const [width, setWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  })
+
   function handleNameChange(e) {
     setName(e.target.value)
   }
@@ -26,6 +33,7 @@ export default function HelloWorld(props) {
         <Row label="Job">
           <input value={job} onChange={handleJobChange} />
         </Row>
+        <Row label="Width">{width}</Row>
       </section>
     </section>
   )
