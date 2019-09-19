@@ -1,23 +1,25 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import Row from '../Row'
+import { ThemeContext, LocaleContext } from '../context'
 
 export default function HelloWorld(props) {
   const name = useFormInput('Han Solo')
   const job = useFormInput('Smuggler')
   const width = useWindowWidth()
+  const theme = useContext(ThemeContext)
+  const locale = useContext(LocaleContext)
   useDocumentTitle(name.value + ' ' + job.value)
 
   return (
-    <section>
-      <section>
-        <Row label="Name">
-          <input {...name} />
-        </Row>
-        <Row label="Job">
-          <input {...job} />
-        </Row>
-        <Row label="Width">{width}</Row>
-      </section>
+    <section className={theme}>
+      <Row label="Name">
+        <input {...name} />
+      </Row>
+      <Row label="Job">
+        <input {...job} />
+      </Row>
+      <Row label="Width">{width}</Row>
+      <Row label="Locale">{locale}</Row>
     </section>
   )
 }
